@@ -105,16 +105,18 @@ var outputLetter = function(key) {
 }
 
 var handleKeyPress = function(key) {
+  if (alpha.includes(key)) {
   rotors = rotate(rotors)
-  let newLetter = rotorChange(key, rotors.rotor2);
-  newLetter = rotorChange(newLetter, rotors.rotor1);
-  newLetter = rotorChange(newLetter, rotors.rotor0);
-  newLetter = reflect(newLetter);
-  newLetter = rotorBack(newLetter, rotors.rotor0);
-  newLetter = rotorBack(newLetter, rotors.rotor1);
-  newLetter = rotorBack(newLetter, rotors.rotor2);
-  // Output new Letter
-  outputLetter(newLetter + 'light');
+    let newLetter = rotorChange(key, rotors.rotor2);
+    newLetter = rotorChange(newLetter, rotors.rotor1);
+    newLetter = rotorChange(newLetter, rotors.rotor0);
+    newLetter = reflect(newLetter);
+    newLetter = rotorBack(newLetter, rotors.rotor0);
+    newLetter = rotorBack(newLetter, rotors.rotor1);
+    newLetter = rotorBack(newLetter, rotors.rotor2);
+    // Output new Letter
+    outputLetter(newLetter + 'light');
+  }
 }
 
 qwerty.map(function(letter){

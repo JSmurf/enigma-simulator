@@ -10,13 +10,16 @@ body{
   flex-wrap: wrap;
   margin-left: auto;
   margin-right: auto;
+  height: 13em;
+  overflow: scroll;
+  border: 1px solid black;
 }
 
 #lights {
   display: grid;
   height: 6em;
   width: 20em;
-  grid-template-columns: repeat(10, 2.5em);
+  grid-template-columns: repeat(20, 1.25em);
   grid-template-rows: repeat(3, 2.5em);
   margin-left: auto;
   margin-right: auto;
@@ -30,14 +33,15 @@ body{
   height: 2em;
   line-height: 2em;
   text-align: center;
+  grid-column-end: span 2;
 }
 
 #Alight{
-  grid-column-start:1;
+  grid-column-start:2;
 }
 
 #Zlight {
-  grid-column-start: 2;
+  grid-column-start: 3;
 }
 
 .lit{
@@ -48,7 +52,7 @@ body{
   display: grid;
   height: 6em;
   width: 20em;
-  grid-template-columns: repeat(10, 2.5em);
+  grid-template-columns: repeat(20, 1.25em);
   grid-template-rows: repeat(3, 2.5em);
   margin-left: auto;
   margin-right: auto;
@@ -61,8 +65,13 @@ body{
   height: 2em;
   line-height: 2em;
   text-align: center;
+  grid-column-end: span 2;
 }
 
-#Zkey{
+#Akey {
   grid-column-start: 2;
+}
+
+#Zkey {
+  grid-column-start: 3;
 }

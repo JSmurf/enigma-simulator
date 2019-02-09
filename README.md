@@ -15,9 +15,10 @@ This is a project that I am building to simulate the Enigma Machine used by Germ
 - [ ] Create styling for rotors
 - [ ] Create styling for keyboard/lights
 - [ ] Create styling for plugboard
+- [ ] *Maybe* add delete functionality
 
 ## Errors to Fix:
 
-- [ ] Non-letter keys register as random letters
+- [x] Non-letter keys register as random letters
 
 [View this project live](https://jsmurf.github.io/enigma-simulator/.)
