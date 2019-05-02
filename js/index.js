@@ -2,6 +2,7 @@
 const lightsDiv = document.getElementById('lights');
 const keyboardDiv = document.getElementById('keyboard');
 const messageDiv = document.getElementById('message');
+const plugboardDiv = document.getElementById('plugboard');
 const positionsDiv = document.getElementById('positions');
 
 //Define arrays for use later. A keyboard array makes building things much faster, the alphabet array is for reference.
@@ -118,7 +119,7 @@ var handleKeyPress = function(key) {
     outputLetter(newLetter + 'light');
   }
 }
-
+// Create lightboard using the qwerty array
 qwerty.map(function(letter){
   var lightText = document.createTextNode(letter);
   var newLight = document.createElement("div");
@@ -127,7 +128,7 @@ qwerty.map(function(letter){
   newLight.classList.add("light");
   lightsDiv.appendChild(newLight);
 });
-
+// Create a keyboard using the qwerty array
 qwerty.map(function(letter){
   var keyText = document.createTextNode(letter);
   var newKey = document.createElement("div");
@@ -139,13 +140,31 @@ qwerty.map(function(letter){
     handleKeyPress(letter)
   });
 });
+// Create a plugboard using the qwerty array
+qwerty.map(function(letter) {
+  var plugText = document.createTextNode(letter);
+  var newPlug = document.createElement("div");
+  var plugHole = document.createElement("div");
+  var plugHole2 = document.createElement("div");
+  var plugLabel = document.createElement("p");
+  plugLabel.appendChild(plugText);
+  plugHole.classList.add('plughole');
+  plugHole2.classList.add('plughole');
+  newPlug.id = letter + 'plug';
+  newPlug.classList.add("plug");
+  newPlug.appendChild(plugLabel);
+  newPlug.appendChild(plugHole);
+  newPlug.appendChild(plugHole2);
+  plugboardDiv.appendChild(newPlug);
+  // ToDO - Add plugboard function listener
+})
 
-
+// Create event listener for keypress
 document.addEventListener('keydown', (event) => {
   var keyName = event.key.toUpperCase();
   handleKeyPress(keyName);
 });
-
+// Create event listener for when the key is lifted 
 document.addEventListener('keyup', (event) => {
   const keyName = event.key.toUpperCase() + 'light';
   document.getElementById(keyName).classList.remove("lit")
