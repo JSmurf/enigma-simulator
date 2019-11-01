@@ -92,14 +92,15 @@ function rotorBack(letter, rotor) {
 }
 
 function reflect(letter) {
-	const index = alpha.indexOf(letter);
+	const index = alpha.indexOf(letter)
 
-	return reflector[index];
+	return reflector[index]
 }
 
 function outputLetter(key) {
 	document.getElementById(key).classList.add('lit')
-	setTimeout(function(){
+	// eslint-disable-next-line func-names
+	setTimeout(function() {
 		document.getElementById(key).classList.remove('lit')
 	}, 300)
 	messageArr.push(key[0])
@@ -158,3 +159,6 @@ document.addEventListener('keyup', event => {
 	const keyName = `${event.key.toUpperCase()}light`
 	document.getElementById(keyName).classList.remove('lit')
 })
+
+positionsDiv.innerHTML = `<p> Positions: ${alpha[rotors.rotor0.position]} ${
+	alpha[rotors.rotor1.position]} ${alpha[rotors.rotor2.position]}</p>`
